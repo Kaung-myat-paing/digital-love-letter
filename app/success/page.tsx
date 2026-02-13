@@ -63,16 +63,24 @@ function SuccessContent() {
               {fullUrl || `.../letter/${slug}`}
             </p>
           </div>
-          <button
-            type="button"
-            onClick={copyLink}
-            className="w-full py-3.5 rounded-xl bg-letter-accent text-white font-medium hover:bg-letter-accent/90 focus:outline-none focus:ring-2 focus:ring-letter-accent focus:ring-offset-2 transition-all"
-          >
-            {copied ? "Copied!" : "Copy link"}
-          </button>
+          <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <button
+              type="button"
+              onClick={copyLink}
+              className="flex-1 py-3.5 rounded-xl bg-letter-accent text-white font-medium hover:bg-letter-accent/90 focus:outline-none focus:ring-2 focus:ring-letter-accent focus:ring-offset-2 transition-all"
+            >
+              {copied ? "Copied!" : "Copy link"}
+            </button>
+            <Link
+              href={fullUrl || `/letter/${slug}`}
+              className="flex-1 py-3.5 rounded-xl bg-white border-2 border-letter-accent text-letter-accent font-medium hover:bg-letter-accent/5 focus:outline-none focus:ring-2 focus:ring-letter-accent focus:ring-offset-2 transition-all text-center"
+            >
+              Go to letter
+            </Link>
+          </div>
           <Link
             href="/"
-            className="inline-block mt-6 text-letter-ink-soft hover:text-letter-accent font-medium transition-colors"
+            className="inline-block mt-2 text-letter-ink-soft hover:text-letter-accent font-medium transition-colors"
           >
             Create another letter
           </Link>
